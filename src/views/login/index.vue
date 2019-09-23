@@ -73,7 +73,7 @@ export default {
             // console.log(res);
             this.$store.commit('getUser',res)
             this.loading=false;
-            this.$router.push('/home')
+            this.$router.back();
           } catch (error) {
             this.$toast.fail('登录失败');
             this.loading=false;

@@ -10,7 +10,9 @@ export default new Vuex.Store({
   },
   mutations: {
     getUser( state, value ){
-      author.setToken(value)
+      author.setToken(value);
+      // 操作state存数据
+      state.user = value;
     }
   },
   actions: {
