@@ -53,4 +53,19 @@ function dodislike(art_id) {
   });
 }
 
-export { focusUser, disfocusUser, dozan, dodiszan, dolike, dodislike };
+// 修改用户头像
+function setUserIcon(photo) {
+  // axios ---> XMLHttprequest 对象
+  //    ----> 默认不允许传递文件
+  //    ----> formDate
+  // 将 photo 转换为 formDate
+  var fd = new FormData();
+  fd.append("photo", photo);
+  return request({
+    url: "v1_0/user/photo",
+    method: "PATCH",
+    data: fd
+  });
+}
+
+export { focusUser, disfocusUser, dozan, dodiszan, dolike, dodislike, setUserIcon };

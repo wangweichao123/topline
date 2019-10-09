@@ -16,6 +16,8 @@ import dayjs from 'dayjs'
 import 'dayjs/locale/zh-cn' // 按需加载中文包
 // 导入登录验证插件
 import judgelogin from '@/utils/judgelogin.js'
+import './assets/font_3vkh9a4iezg/iconfont'
+import './assets/font_3vkh9a4iezg/iconfont.css'
 
 dayjs.locale('zh-cn') // 全局使用中文
 dayjs.extend(relativeTime)

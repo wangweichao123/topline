@@ -31,6 +31,11 @@ export default new Router({
       component: () => import('@/views/details')
     },
     {
+      name:'myset',
+      path:'/myset',
+      component:()=>import('@/views/my/myset')
+    },
+    {
       path: '/',
       component:() => import("@/views/tabnav"),
       children:[
@@ -38,6 +43,11 @@ export default new Router({
           name: 'home',
           path:'home',
           component:() => import('@/views/home')
+        },
+        {
+          name: 'my',
+          path:'my',
+          component:() => import('@/views/my')
         },
       ]
     },

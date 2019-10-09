@@ -3,24 +3,43 @@
     <van-cell>
       <template slot="title">
         <div class="userInfo">
-          <img src="https://img.yzcdn.cn/vant/cat.jpeg" />
-          <span>作者名</span>
-          <van-icon name="good-job-o" />666
+          <img :src="detailsList.aut_photo" />
+          <span>{{ detailsList.aut_name }}</span>
+          <van-icon name="good-job-o" />{{ detailsList.like_count }}
         </div>
       </template>
       <template slot="label">
-        <div class="timeInfo">时间·央视网新闻频道官方</div>
+        <div class="timeInfo">{{ detailsList.content }}</div>
         <div class="callback">
-            <span>09-21 9:10</span>
-            <span>·回复</span>
+            <span>{{ detailsList.pubdate | timeformat }}</span>
+            <span @click="callback(detailsList)">·回复</span>
         </div>
       </template>
     </van-cell>
   </div>
 </template>
-
 <script>
-export default {};
+import eventBus from "@/utils/eventBus"
+import { getFirstComment } from '@/api/details'
+export default {
+  props:['detailsList'],
+  data() {
+    return {
+      
+    }
+  },
+  methods: {
+    callback(detailsList){
+      eventBus.$emit('showcom',{
+        show:true,
+        ...detailsList
+      })
+    }
+  },
+  mounted() {
+    
+  },
+};
 </script>
 
 <style lang="less" scoped>
